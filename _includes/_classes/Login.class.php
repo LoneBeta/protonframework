@@ -11,6 +11,8 @@ class Login
 
 	public function submit()
 	{
+		$this->fetchUser();
+
 		if($this->validateHash())
 		{
 			UserRedirect::redirect("/dashboard.php");
@@ -19,14 +21,14 @@ class Login
 
 	protected function validateHash()
 	{
-		return password_verify($this->password, $this->user['Hash']);
+		return password_verify($this->password, $this->user->password);
 	}
 
 	protected function fetchUser()
 	{
-		$this->user = new User();
+		$this->user = new UserSearch();
 		$this->user->username = $this->username;
 
-		$this->user = $this->user->submit();
+		$this->user->submit();
 	}
 }

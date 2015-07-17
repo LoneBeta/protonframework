@@ -4,11 +4,13 @@ namespace ENVProton;
 
 class UserSearch extends RecordSearch
 {
-	protected public function submit()
+	public $result;
+
+	public function submit()
 	{
-		$q = $this->db->prepare("SELECT * FROM Users WHERE username = :username");
+		$q = $this->db->prepare("SELECT * FROM users WHERE Username = :username");
 		$q->execute(array(":username"=>$this->username));
 
-		return $q->fetch();
+		$this->result = $q->fetch();
 	}
 }
