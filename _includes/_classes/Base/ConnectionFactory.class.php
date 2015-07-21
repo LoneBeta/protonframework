@@ -1,7 +1,10 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Base;
 
+/**
+ * These need to be moved into the main config file
+ */
 define('DATABASE_HOST',"localhost");
 define('DATABASE_NAME',"proton");
 define('DATABASE_USER',"proton");

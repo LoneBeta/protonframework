@@ -1,6 +1,6 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Records;
 
 class User extends Record
 {
@@ -18,7 +18,7 @@ class User extends Record
 			"Password"=>password_hash($this->password, PASSWORD_DEFAULT)
 		);
 
-		$query = new DBQuery($fields, 'users');
+		$query = new \ENVProton\Base\DBQuery($fields, 'users');
 		$query->submit();
 	}
 }

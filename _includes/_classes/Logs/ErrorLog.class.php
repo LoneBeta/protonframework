@@ -1,6 +1,6 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Logs;
 
 class ErrorLog extends Log
 {
@@ -11,7 +11,7 @@ class ErrorLog extends Log
 			"Script"=>__FILE__
 		);
 
-		$query = new DBQuery($fields, 'errors');
+		$query = new \ENVProton\Base\DBQuery($fields, 'errors');
 
 		return $query->submit();
 	}

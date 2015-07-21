@@ -1,6 +1,6 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Routers;
 
 abstract class Router
 {
@@ -9,7 +9,7 @@ abstract class Router
 		/**
 		 * Store database connection in object scope
 		 */
-		$this->db = ConnectionFactory::getConnection();
+		$this->db = \ENVProton\Base\ConnectionFactory::getConnection();
 
 		/**
 		 * Store injected config in object scope
@@ -29,8 +29,11 @@ abstract class Router
 
 	protected function parseConfig()
 	{
-		$parseConfig = new ConfigParser();
-		$parseConfig->config = $this->config();
+		$parseConfig = new \ENVProton\Parsers\ConfigParser();
+		$parseConfig->config = $this->config;		
+		$parseConfig->parse();
+
+		return $parseConfig;
 	}
 
 	abstract protected function parseRequest();

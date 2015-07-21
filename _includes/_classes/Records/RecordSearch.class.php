@@ -1,6 +1,6 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Records;
 
 abstract class RecordSearch
 {
@@ -8,7 +8,7 @@ abstract class RecordSearch
 
 	public function __construct()
 	{
-		$this->db = ConnectionFactory::getConnection();
+		$this->db = \ENVProton\Base\ConnectionFactory::getConnection();
 	}
 
 	public function __get($name)

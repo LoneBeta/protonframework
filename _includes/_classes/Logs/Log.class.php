@@ -1,12 +1,12 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Logs;
 
 abstract class Log
 {
 	public function __construct($title,$description)
 	{
-		$this->db = ConnectionFactory::getConnection();
+		$this->db = \ENVProton\Base\ConnectionFactory::getConnection();
 		$this->title = $title;
 		$this->description = $description;
 

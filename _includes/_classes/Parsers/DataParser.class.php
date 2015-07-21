@@ -1,6 +1,6 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Parsers;
 
 abstract class DataParser
 {

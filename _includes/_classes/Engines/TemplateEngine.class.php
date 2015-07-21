@@ -1,11 +1,11 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Engines;
 
 class TemplateEngine extends Engine
 {
 	public function runLogic()
 	{
-		echo $this->page['Content'];
+		echo htmlentities($this->page['Content']);
 	}
 }

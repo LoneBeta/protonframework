@@ -15,4 +15,4 @@ require 'functions.php';
 /**
  * URI handler. Routers user request to appropriate page/logic controller
  */
-$sessionRouter = new URIRouter(array("uri"=>$_SERVER['REQUEST_URI']));
+$sessionRouter = new \ENVProton\Routers\URIRouter(array("uri"=>$_SERVER['REQUEST_URI']));

@@ -1,13 +1,13 @@
 <?php
 
-namespace ENVProton;
+namespace ENVProton\Routers;
 
 class URIRouter extends Router
 {
 	protected function parseRequest()
 	{
-		$q = $this->db("SELECT * FROM pages WHERE URI = :uri");
-		$q->execute(array(":uri"=>$this->config->uri));
+		$q = $this->db->prepare("SELECT * FROM pages WHERE URI = :uri");
+		$q->execute(array(":uri"=>$this->options->uri));
 
 		$this->page = $q->fetch();
 
@@ -19,7 +19,7 @@ class URIRouter extends Router
 		/**
 		 * Initialise template engine
 		 */
-		$template = new TemplateEngine();
+		$template = new \ENVProton\Engines\TemplateEngine();
 		$template->page = $this->page;
 
 		/**
